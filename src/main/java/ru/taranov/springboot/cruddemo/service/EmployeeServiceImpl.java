@@ -1,10 +1,10 @@
 package ru.taranov.springboot.cruddemo.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.taranov.springboot.cruddemo.dao.EmployeeDAO;
-import ru.taranov.springboot.cruddemo.dao.EmployeeDAOHibernateImpl;
 import ru.taranov.springboot.cruddemo.entity.Employee;
 
 import java.util.List;
@@ -15,7 +15,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     private EmployeeDAO employeeDAO;
 
     @Autowired
-    public EmployeeServiceImpl(EmployeeDAOHibernateImpl employeeDAO) {
+    public EmployeeServiceImpl(@Qualifier ("employeeDAOJpaImpl") EmployeeDAO employeeDAO) {
         this.employeeDAO = employeeDAO;
     }
 
