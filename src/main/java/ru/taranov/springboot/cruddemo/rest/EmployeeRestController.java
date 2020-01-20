@@ -57,7 +57,7 @@ public class EmployeeRestController {
         if(employee == null) {
             throw new RuntimeException("Employee id not found - " + id);
         }
-        employeeService.delete(id);
+        employeeService.deleteById(id);
         return "Deleted employee id: " + id;
     }
 
